@@ -21,11 +21,12 @@ public class VehicleController {
 	private VehicleService vehicalService;
 	
 	
+    @CrossOrigin(origins ="http://localhost:4200")
 	@RequestMapping("/MIS/{id}") // takes the parameter in which url it is used to
 	public VehicleInformation sayHi(@PathVariable String id) throws IOException {
 		String url = "http://mis.mptransport.org/MPLogin/eSewa/VehicleSearch.aspx";
 		Connection.Response resp = Jsoup.connect(url) //
-				.timeout(10000) //
+				.timeout(5000) //
 				.method(Connection.Method.GET) //
 				.execute();
         // * Find the form
