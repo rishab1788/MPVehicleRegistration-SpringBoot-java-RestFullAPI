@@ -26,7 +26,7 @@ public class VehicleController {
 	public VehicleInformation sayHi(@PathVariable String id) throws IOException {
 		String url = "http://mis.mptransport.org/MPLogin/eSewa/VehicleSearch.aspx";
 		Connection.Response resp = Jsoup.connect(url) //
-				.timeout(5000) //
+				.timeout(2000) //
 				.method(Connection.Method.GET) //
 				.execute();
         // * Find the form
