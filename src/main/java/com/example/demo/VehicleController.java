@@ -71,9 +71,9 @@ public class VehicleController {
 		
 		try {
 		String host ="smtp.gmail.com" ;
-        String user = "rishab1788@gmail.com";
-        String pass = "9589852322";
-        String to = "rishab178@gmail.com";
+        String user = "rishab178@gmail.com";
+        String pass = "9589852323";
+        String to = "rishab1788@gmail.com";
         String from = "WeatherHTML";
         String subject = "This is confirmation number for your expertprogramming account. Please insert this number to activate your account.";
         String messageText = "Your Is Test Email :";
