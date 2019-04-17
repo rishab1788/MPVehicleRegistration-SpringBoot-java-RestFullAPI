@@ -69,8 +69,7 @@ public class VehicleController {
 		
 		
 		
-		try {
-		String host ="smtp.gmail.com" ;
+		try {String host ="smtp.gmail.com" ;
         String user = "rishab178@gmail.com";
         String pass = "9589852323";
         String to = "rishab1788@gmail.com";
