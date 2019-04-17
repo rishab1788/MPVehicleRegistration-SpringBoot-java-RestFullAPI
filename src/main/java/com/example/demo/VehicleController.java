@@ -1,8 +1,22 @@
 package com.example.demo;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -10,15 +24,109 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.FormElement;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+import java.util.Date;
+import java.util.Properties;    
+import javax.mail.*;    
+import javax.mail.internet.*;  
+
 
 @RestController
 public class VehicleController {
     @Autowired
 	private VehicleService vehicalService;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	    @SuppressWarnings("restriction")
+	@CrossOrigin(origins ="http://localhost:4200")
+    @RequestMapping("/sendmail") // takes the parameter in which url it is used to
+	public String sendmail() throws IOException {
+		String url = "http://mis.mptransport.org/MPLogin/eSewa/VehicleSearch.aspx";
+
+	//	send("rishab1788@gmail.com","9589852323","rishab1788@gmail.com","hey this is rishabh","How r u?");     
+	
+		
+		
+		
+		
+		
+		try {
+		String host ="smtp.gmail.com" ;
+        String user = "rishab1788@gmail.com";
+        String pass = "9589852322";
+        String to = "rishab178@gmail.com";
+        String from = "WeatherHTML";
+        String subject = "This is confirmation number for your expertprogramming account. Please insert this number to activate your account.";
+        String messageText = "Your Is Test Email :";
+        boolean sessionDebug = false;
+
+        Properties props = System.getProperties();
+
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.required", "true");
+
+        java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+        Session mailSession = Session.getDefaultInstance(props, null);
+        mailSession.setDebug(sessionDebug);
+        Message msg = new MimeMessage(mailSession);
+        msg.setFrom(new InternetAddress(from));
+        InternetAddress[] address = {new InternetAddress(to)};
+        msg.setRecipients(Message.RecipientType.TO, address);
+        msg.setSubject(subject); msg.setSentDate(new Date());
+        msg.setText(messageText);
+
+       Transport transport=mailSession.getTransport("smtp");
+       transport.connect(host, user, pass);
+       transport.sendMessage(msg, msg.getAllRecipients());
+       transport.close();
+       System.out.println("message send successfully");
+    }catch(Exception ex)
+    {
+        System.out.println(ex);
+    }
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return url;
+	
+    }
+
+	
+	
+	
+	
+	
+	
+	
 	
 	
     @CrossOrigin(origins ="http://localhost:4200")
