@@ -104,6 +104,7 @@ public class VehicleController {
        System.out.println("message send successfully");
     }catch(Exception ex)
     {
+     url=url+ex;
         System.out.println(ex);
     }
 
