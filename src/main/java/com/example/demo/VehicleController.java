@@ -138,15 +138,14 @@ public class VehicleController {
 
 
 
-	 Elements rows = responseDocument.select("table table-striped table-dark").select("tbody").select("tr");;
+	 Elements rows = responseDocument.select("table").get(1).select("tbody").select("tr");
 String sb="";
     for (Element row : rows) {
             String number = row.child(0).html();
 	    String statename = row.child(1).html();
 	     String conf = row.child(2).html();
              String death =row.child(3).html();
-	    sb += number+ statename+conf+death+'\n';
-		     
+	    sb += number+ statename+conf+death+'\n';     
     }
      return sb;
 	}
@@ -173,9 +172,7 @@ String sb="";
 				.method(Connection.Method.GET) //
 				.execute();
         // * Find the form
-	
-		
-		
+
 		Document responseDocument = resp.parse();
 		Element potentialForm = responseDocument.select("form#aspnetForm").first();
 		checkElement("form element", potentialForm);
