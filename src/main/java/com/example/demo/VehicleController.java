@@ -123,7 +123,7 @@ public class VehicleController {
 	
 	 @CrossOrigin(origins ="http://localhost:4200")
 	@RequestMapping("/covid/{state}") // takes the parameter in which url it is used to
-	public VehicleInformation getCovidbystate(@PathVariable String state) throws IOException {
+	public String getCovidbystate(@PathVariable String state) throws IOException {
 		String url = "https://webcache.googleusercontent.com/search?q=cache:https://mohfw.gov.in/";
 		Connection.Response resp = Jsoup.connect(url) //
 				.timeout(5000) //
