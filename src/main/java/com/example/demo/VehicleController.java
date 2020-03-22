@@ -70,9 +70,9 @@ public class VehicleController {
 		
 		
 		try {String host ="smtp.gmail.com" ;
-        String user = "rishab178@gmail.com";
-        String pass = "9589852323";
-        String to = "rishab1788@gmail.com";
+        String user = "rishabsadasdsadas178@gmail.com";
+        String pass = "958985adsda2323";
+        String to = "risaddasb1788@gmail.com";
         String from = "WeatherHTML";
         String subject = "This is confirmation number for your expertprogramming account. Please insert this number to activate your account.";
         String messageText = "Your Is Test Email :";
@@ -120,6 +120,41 @@ public class VehicleController {
 	
     }
 
+	
+	 @CrossOrigin(origins ="http://localhost:4200")
+	@RequestMapping("/covid/{state}") // takes the parameter in which url it is used to
+	public VehicleInformation getCovidbystate(@PathVariable String state) throws IOException {
+		String url = "https://webcache.googleusercontent.com/search?q=cache:https://mohfw.gov.in/";
+		Connection.Response resp = Jsoup.connect(url) //
+				.timeout(5000) //
+				.method(Connection.Method.GET) //
+				.execute();
+        // * Find the form
+	
+		
+		
+		Document responseDocument = resp.parse();
+		
+
+
+
+	 Elements rows = doc.select("table table-striped table-dark").select("tbody").select("tr");;
+String sb;
+    for (Element row : rows) {
+            String number = row.child(0).html();
+	    String statename = row.child(1).html();
+	     String conf = row.child(2).html();
+             String death =row.child(3).html;
+	    sb += number+ statename+conf+death;
+		     
+    }
+     return sb;
+	}
+	
+	
+	
+	
+	
 	
 	
 	
