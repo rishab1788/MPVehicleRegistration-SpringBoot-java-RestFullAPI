@@ -141,11 +141,12 @@ public class VehicleController {
 	 Elements rows = responseDocument.select("table").get(1).select("tbody").select("tr");
 String sb="";
     for (Element row : rows) {
-            String number = row.child(0).html();
-	    String statename = row.child(1).html();
+             String number = row.child(0).html();
+	     String statename = row.child(1).html();
 	     String conf = row.child(2).html();
-             String death =row.child(3).html();
-	    sb += number+ statename+conf+death+'\n';     
+	     String fconf = row.child(3).html();
+             String death =row.child(4).html();
+	    sb += number+" "+ statename+" "+conf+" "+fconf +" "+death+" "+"\n";     
     }
      return sb;
 	}
