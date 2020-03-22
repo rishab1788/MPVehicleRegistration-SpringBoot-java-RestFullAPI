@@ -139,13 +139,13 @@ public class VehicleController {
 
 
 	 Elements rows = responseDocument.select("table table-striped table-dark").select("tbody").select("tr");;
-String sb;
+String sb="";
     for (Element row : rows) {
             String number = row.child(0).html();
 	    String statename = row.child(1).html();
 	     String conf = row.child(2).html();
              String death =row.child(3).html();
-	    sb += number+ statename+conf+death;
+	    sb += number+ statename+conf+death+'\n';
 		     
     }
      return sb;
