@@ -2,7 +2,6 @@ package com.example.mpvehicle.service.webcrawler;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
-import org.jsoup.helper.StringUtil;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.FormElement;
